@@ -1,9 +1,9 @@
 
-<span class="gray-medium">VAE를 설명하기 앞서, VAE의 기반이 되는 Encoder, Autoencoder에 대해 설명할 것이다.</span>
-<span class="gray-medium">만약 Encoder와 Autoencoder에 대해 이미 알고있다면 바로 VAE 파트를 읽어도 된다.</span>
-<span class="gray-medium">※ 독자가 확률론, 선형대수, 미적분학 등 기초 수학 지식을 이미 알고 있다는 가정 하에 설명함.</span>
-<span class="gray-medium">※ 밑에 출처가 표시되지 않은 사진은 직접 제작한 사진임</span>.
-<span class="gray-medium">※ 이 글은 생성 모델에 중점이 맞춰져있음.</span>
+<span class="gray-medium">VAE를 설명하기 앞서, VAE의 기반이 되는 Encoder, Autoencoder에 대해 설명할 것이다.</span><br>
+<span class="gray-medium">만약 Encoder와 Autoencoder에 대해 이미 알고있다면 바로 VAE 파트를 읽어도 된다.</span><br>
+<span class="gray-medium">※ 독자가 확률론, 선형대수, 미적분학 등 기초 수학 지식을 이미 알고 있다는 가정 하에 설명함.</span><br>
+<span class="gray-medium">※ 밑에 출처가 표시되지 않은 사진은 직접 제작한 사진임.</span><br>
+<span class="gray-medium">※ 이 글은 생성 모델에 중점이 맞춰져있음.</span><br>
 ## Encoder
 위키피디아에서 인코딩에 대해 아래와 같이 설명하고 있다.
 
@@ -41,11 +41,11 @@
 <div align="center" class="gray-medium">출처 : https://www.mdpi.com/2624-831X/4/3/16</div>
 
 ### <span class="bullet-dot"></span>수학적 기호 표기와 용어
-<span class="bullet-dot"></span>$x$: 입력 데이터
-<span class="bullet-dot"></span>$z$: 압축된 데이터(latent vector)
-<span class="bullet-dot"></span>$\hat{x}$: 복원된 데이터
-<span class="bullet-dot"></span>Latent vector: 인코더를 통해 얻은 압축된 데이터를 뜻함
-<span class="bullet-dot"></span>Latent space: latent vector $z$들이 분포하는 공간
+<span class="bullet-dot"></span>$x$: 입력 데이터<br>
+<span class="bullet-dot"></span>$z$: 압축된 데이터(latent vector)<br>
+<span class="bullet-dot"></span>$\hat{x}$: 복원된 데이터<br>
+<span class="bullet-dot"></span>Latent vector: 인코더를 통해 얻은 압축된 데이터를 뜻함<br>
+<span class="bullet-dot"></span>Latent space: latent vector $z$들이 분포하는 공간<br>
 
 ### <span class="bullet-dot"></span>AutoEncoder의 생성 모델로서의 활용
 <div align="center"><img src="autoencoder_schema.jpg" /></div>
