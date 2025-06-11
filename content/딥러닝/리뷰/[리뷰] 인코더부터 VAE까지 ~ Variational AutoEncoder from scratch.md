@@ -125,7 +125,7 @@ ELBO의 첫 번째 항은 $p_{\theta}(x|z)$가 latent vector $z$ ~ $q_{\phi}(z|x
 >**Q. $p_{\theta}(x)$를 최대화하도록 학습했음에도 왜 VAE의 디코더는 $p_{\theta}(x|z)$로 데이터를 생성하는가?**<br>A. 학습 과정에서 VAE는 직접 계산이 불가능한 likelihood $p_{\theta}(x) = \int p_{\theta}(x|z)p(z)dz$를 대신하여, 이를 하한으로 근사한 ELBO를 최대화한다. 이 과정에서 포함된 reconstruction loss $\mathbb{E}_{{q}_{\phi}(z|x)}[\log p_{\theta}(x|z)]$은 디코더 $p_{\theta}(x|z)$가 주어진 latent vector $z$로부터 $x$를 정밀하게 복원하도록 유도한다.<br>따라서 학습이 완료된 후에는 $p_{\theta}(x)$ 자체가 명시적 형태로 존재하지 않기 때문에, 실제 데이터 생성을 위해서는 latent prior $p(z)$로부터 샘플링한 $z$를 입력하여 $x \sim p_{\theta}(x|z)$를 생성하는 방식으로 활용하게 된다.  즉, $p_{\theta}(x|z)$는 학습 중 보조 역할을 하면서도, 생성 시점에서는 실질적인 생성 모델로 작동한다.
   
   
-### · VAE 관련 추천 글
+## VAE 관련 추천 글
   
 이 글을 작성하기 위해 VAE를 공부하던 중, 대부분의 설명글에서 **논리적인 모순**을 느꼈다.  
 대표적인 예시는 다음과 같다:  
