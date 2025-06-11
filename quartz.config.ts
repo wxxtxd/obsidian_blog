@@ -95,3 +95,8 @@ const config: QuartzConfig = {
 }
 
 export default config
+
+export default {
+  css: ["./snippets/custom.css"],
+}
+
