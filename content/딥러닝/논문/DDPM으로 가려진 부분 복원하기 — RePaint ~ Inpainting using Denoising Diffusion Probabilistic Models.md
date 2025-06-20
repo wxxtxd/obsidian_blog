@@ -64,6 +64,7 @@ DDPM이 $x_{t}$에서 $x_{t-1}$로 가는 역확산 과정이 온전히 $x_{t}$�
   <img src="eq.png" />
 </div>  
 이렇게 known regions를 Markov 성질을 이용하여 가우시안 분포에서 샘플링<span style="color: orange;">(8a)</span>하여 $x_{t-1}$를 만드는 과정<span style="color:orange;">(8c)</span>에서 conditioning을 해줄 수 있고, 동시에 본래의 이미지 형태를 벗어나지 않고 생성을 할 수 있게 일종의 가이드 역할을 해준다.  
+
 ### • Resampling
 <span align="center"><img src="resampling.png" /></span><span class="img-caption">n은 이 파트에서 설명할 Resample을 수행하는 횟수이다. n=1은 Resample을 적용하지 않고 DDPM baseline만 따른 것이고,  n=2는 Resample을 1번 수행한 것이다.</span>  
 위 사진에서 파란 박스는 mask로 가려진 영역이고, n=1인 사진은 Conditioning on the known Region에서 설명했던 방법만 적용하여 RePaint해낸 사진이다. 사진을 보면 알 수 있듯이 Known Regions와 match만 해서 질감만 확장해 사진을 채웠지, 강아지의 얼굴(눈, 코, 입) 등을 생성해내어 의미적 일관성을 고려하여 채우진 않은 것을 알 수 있다.  
