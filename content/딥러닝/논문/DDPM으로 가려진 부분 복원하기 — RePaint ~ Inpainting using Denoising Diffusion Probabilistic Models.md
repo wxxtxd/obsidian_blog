@@ -83,12 +83,14 @@ $$
 <div align="center">
   <img src="alg1.png" />
 </div>  
+
 #### • Resampling 과정 요약
 1. **Step 1.** known region과 unknown region을 결합하여 중간 샘플 $x_{t−1}$ 생성  
 2. **Step 2.** 해당 $x_{t−1}$을 forward process로 되돌려 $x_{t}$ 생성 (정규분포에서 샘플링)  
 3. **Step 3.** 새로 생성된 $x_{t}$에 대해 DDPM denoising 수행  
 4. **Step 4.** denoising된 결과에서 다시 known region과 unknown region을 조합해 새로운 $x_{t−1}$ 구성  
 5. **Step 5.** 이 과정을 **$n$회 반복**하여 점진적으로 조화로운 이미지 생성    
+
 ### • Resampling을 더 효과적으로 활용하기 위한 Jump
 하지만 위처럼 여러번의 역확산 step이 아닌 하나의 step내에서만 Resampling을 n번 반복하면 충분한 조화를 이루기 어렵다. 이걸 해결하기 위해 제시한 방법이 바로 "Jump"인데, 위에서 설명한 방식처럼 $x_{t-1}$​을 $x_{t}$로 1step만 되감는 것과 달리 "Jump"를 이용한 방식은 $x_{t-j}$​를 $x_{t}$​로 j step만큼 되감는다. 이렇게 여러 step($j$ step)을 되감아 다시 DDPM에 입력해주면, 단일 step 되감기보다 더 많은 복원 과정을 거치게 되어 이미지의 조화롭고 구조적인 품질이 향상된다. Jump의 대략적인 코드와 $t$의 그래프는 아래와 같다.  
 <div align="center">
