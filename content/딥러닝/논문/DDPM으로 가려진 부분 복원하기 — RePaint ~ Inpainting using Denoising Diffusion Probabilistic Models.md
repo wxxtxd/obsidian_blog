@@ -11,6 +11,7 @@ Github - https://github.com/andreas128/RePaint
 ## Abstract
 Free-form Inpainting은 이미지에서 임의의 binary mask로 특정된 영역을 채워 넣는 task이다. 이미 존재하는 대부분의 접근들은 특정 분포의 mask에 대해서만 학습한다. 이러한 학습 방법으로 인해 새로운 mask에 대한 일반화가 제한되어 버린다. 게다가, pixel-wise loss와 perceptual loss를 이용하여 학습을 시키면 가려진 영역을 의미론적으로 의미 있게 채우는 대신 단순히 주변의 질감을 확장하여 채워버린다. 이러한 문제에 대해 다루기 위해 이 연구에선 극한의 형태 mask도 다룰 수 있도록 DDPM을 기반으로 한 Inpainting 접근 방법인 RePaint를 제시한다. 생성 과정을 condition하기 위해, 주어진 이미지 정보를 이용해 가려지지 않은 영역을 샘플링하는 방식으로 역확산 반복 과정만을 수정한다. 이 방법은 본래의 DDPM의 구조를 수정하지 않으므로 어떠한 Inpainting 형식에도 다양하고 좋은 퀄리티의 이미지를 생성해낸다.
 <div class="divider"></div>
+
 ## Introduction 요약
 <span class="bullet-dot"></span>이미 학습되어 있는 unconditional DDPM을 사용함.(off-the-shelf)  
 <span class="bullet-dot"></span>mask-conditional 생성 모델로 학습시키는 대신 생성 과정에서 가려지지 않은 영역을 condition으로 주는 방법을 사용할 것임  
@@ -18,6 +19,7 @@ Free-form Inpainting은 이미지에서 임의의 binary mask로 특정된 영�
 <span class="bullet-dot"></span>standard DDPM 샘플링을 이용하면 질감은 잘 채우지만 의미적으로 옳게 채우지 못하는 경우가 있음. 이를 해결하기 위해 논문에선 Resampling을 제시함.  
 <span class="bullet-dot"></span>CelebA-HQ와 ImageNet 데이터셋을 활용한 실험을 통해, RePaint는 다른 SOTA Inpainting 방법들과 비교하여 일반화 성능과 의미적 일관성 측면에서 더 우수한 결과를 보임.  
 <div class="divider"></div>
+
 ## Notation and Preliminaries  
 <span class="bullet-dot"></span>$\odot$ : 원소별 곱(Element-wise product)  
 <span class="bullet-dot"></span>원소별 곱의 정의는 아래와 같음.  
@@ -51,6 +53,7 @@ $$
 <span class="bullet-dot"></span>mask $m∈\{0,1\}^{m×n}$ : known regions는 1, unknown regions는 0  
 <span class="bullet-dot"></span>연산 $m\odot x$은 known regions는 그대로 유지하고, unknown regions는 0으로 바꿔준다.  
 <div class="divider"></div>
+
 ## Method
 <span class="gray-medium">위에서 언급한 것과 같이 학습된 unconditional DDPM을 추가적인 파인튜닝 없이 사용한다.(off-the-shelf)</span>  
 ### • Conditioning on the known Region
